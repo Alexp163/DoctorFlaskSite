@@ -1,0 +1,4 @@
+1. main.py app.py view.py models.py forms.py config.py db.py - базовая структура проекта
+2. Создание папки templates (находится в той же папке, что и app.py)
+3. Импортирование render_temlate во views.py для отдачи html-шаблонов
+4. <a href='{{ url_for("index") }}'>Главная</a> - создание динамических ссылок на каждую страницу
