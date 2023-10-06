@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{% block page_title %} {% endblock %}</title>
 </head>
 <body>
-    <h1>Медицинская компания "Здоровый пациент"  приглашает на бесплатное обследования</h1>
+    <h1>{% block h1_title %} {% endblock %}</h1>
     <ul>
         <li>
             <a href='{{ url_for("index") }}'>Главная</a>
@@ -20,5 +20,7 @@
             <a href='{{ url_for("login") }}'>Войти</a>
         </li>
     </ul>
+    {% block content %}
+    {% endblock %}
 </body>
 </html>
