@@ -1,24 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>Медицинская компания "Здоровый пациент"  приглашает на бесплатное обследования</h1>
-    <ul>
-        <li>
-            <a href='{{ url_for("index") }}'>Главная</a>
-        </li>
-        <li>
-            <a href='{{ url_for("doctors") }}'>Доктора</a>
-        </li>
-        <li>
-            <a href='{{ url_for("registration") }}'>Регистрация</a>
-        </li>
-        <li>
-            <a href='{{ url_for("login") }}'>Войти</a>
-        </li>
-    </ul>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block page_title %} главная {% endblock %}
+
+{% block h1_title %} Медицинская компания "Здоровый пациент"  приглашает на бесплатное обследование {% endblock %}
+
+{% block content %}
+
+<p>
+  <a href="#">Консультации врачей</a>
+</p>
+<p>
+  <a href="#">Инструментальные методы исследования</a>
+</p>
+<p>
+  <a href="#">Анализы</a>
+</p>
+<p>
+  <a href="#">Стационарное лечение</a>
+</p>
+
+{% endblock %}
