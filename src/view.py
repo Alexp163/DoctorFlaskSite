@@ -21,3 +21,8 @@ def login():
 @app.route('/registration')
 def registration():
     return render_template('registration.html')
+
+
+@app.route('/doctors/1')
+def one_doctor():
+    return render_template('one_doctor.html')

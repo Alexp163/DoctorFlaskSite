@@ -1,22 +1,12 @@
 {% extends "base.html" %}
 
-{% block page_title %} главная {% endblock %}
+{% block page_title %} Компания {{ super() }} - главная {% endblock %}
 
-{% block h1_title %} Медицинская компания "Здоровый пациент"  приглашает на бесплатное обследование {% endblock %}
+{% block h1_title %} {{ super() }} - Медицинская компания "Здоровый пациент"  приглашает на бесплатное обследование {% endblock %}
 
 {% block content %}
 
-<p>
-  <a href="#">Консультации врачей</a>
-</p>
-<p>
-  <a href="#">Инструментальные методы исследования</a>
-</p>
-<p>
-  <a href="#">Анализы</a>
-</p>
-<p>
-  <a href="#">Стационарное лечение</a>
-</p>
+{{ super() }}
+{% include "include/type_services.html" %}
 
 {% endblock %}
