@@ -5,6 +5,8 @@
 {% block h1_title %} Личные данные доктора Иванова {% endblock %}
 
 {% block content %}
+{{ super() }}
 <p>Иванов Иван Иванович, 44 года</p>
 {% include "include/menu_doctor.html" %}
+
 {% endblock %}
