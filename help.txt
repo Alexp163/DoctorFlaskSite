@@ -8,4 +8,9 @@
 8. создание в папке templates папки include с малыми страничками(main_menu.html
     и menu_doctor.html) и подключением их через {{ super() }}
 9. Создание динамической страницы one_doctor.html для каждого доктора, с подключением во view.py
-
+10. Устанавливаем sqlalchemy(pip install flask_sqlalchemy)
+11. pip freeze>requirements.txt
+12. Прописываем путь в папке db.py
+(app.config["SQLALCHEMY_DATABASE_URL"] = "sqlite:///slite.db"
+db = SQLAlchemy(app))
+13. Создаем таблицу с параметрами доктора(комментарий в начале файла models.py)
