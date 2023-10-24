@@ -14,7 +14,7 @@ from db import db
 # db.Column() - создания колонки (дополнительные поля nullable, unique, primary_key)
 # для id всегда задается primary_key=True
 
-class Doctor:
+class Doctor(db.Model):
     __tablename__ = "doctor"
 
     id = db.Column(db.Integer(), primary_key=True)

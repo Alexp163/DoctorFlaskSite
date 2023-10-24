@@ -1,5 +1,6 @@
 from app import app
 from flask import render_template
+from db_run import Doctor
 
 
 
@@ -10,7 +11,8 @@ def index():
 
 @app.route('/doctors')
 def doctors():
-    return render_template('doctors.html')
+    doctors = Doctor.query.all()
+    return render_template('doctors.html', doctors=doctors)
 
 
 @app.route('/login')

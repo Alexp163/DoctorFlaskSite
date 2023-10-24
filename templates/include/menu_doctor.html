@@ -1,12 +1,13 @@
+
+{% for d in doctors %}
+
 <p>
-    <a href="#">Врач Иванов Иван Иванович</a>
+    <a href="#">Врач {{ d.first_name }} {{ d.second_name }}</a> <div> {{ d.email }}
+    {{ d.telephone  }} {{ d.profile }}</div>
 </p>
-<p>
-    <a href="#">Врач Петров Николай Иванович</a>
-</p>
-<p>
-    <a href="#">Врач Семнов Александр Каранович</a>
-</p>
-<p>
-    <a href="#">Врач Карапетян Игорь Ашотович</a>
-</p>
+
+{% endfor %}
+
+<!--    doctor1 = Doctor(age=45, second_name="Popov", first_name="Alexandr", -->
+<!--                    last_name="Vladimir", telephone="777777777", email="qwwqq@mail.ru", -->
+<!--                    profile="urolog", experience="20 years") -->
