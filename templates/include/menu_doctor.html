@@ -2,12 +2,10 @@
 {% for d in doctors %}
 
 <p>
-    <a href="#">Врач {{ d.first_name }} {{ d.second_name }}</a> <div> {{ d.email }}
-    {{ d.telephone  }} {{ d.profile }}</div>
+    <a href="{{ url_for('one_doctor', doctor_id=d.id)}}">Врач {{ d.first_name }}
+        {{ d.second_name }}</a> <div> {{ d.email }}
+        {{ d.telephone  }} {{ d.profile }}</div>
 </p>
 
 {% endfor %}
 
-<!--    doctor1 = Doctor(age=45, second_name="Popov", first_name="Alexandr", -->
-<!--                    last_name="Vladimir", telephone="777777777", email="qwwqq@mail.ru", -->
-<!--                    profile="urolog", experience="20 years") -->

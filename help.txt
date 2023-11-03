@@ -14,3 +14,6 @@
 (app.config["SQLALCHEMY_DATABASE_URL"] = "sqlite:///slite.db"
 db = SQLAlchemy(app))
 13. Создаем таблицу с параметрами доктора(комментарий в начале файла models.py)
+14. Создание моделей:
+    - добавляем класс в models.py (класс наследуем от db.Model)
+    -

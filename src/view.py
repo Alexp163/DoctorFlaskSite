@@ -1,6 +1,6 @@
 from app import app
 from flask import render_template
-from db_run import Doctor
+from models import Service, Doctor
 
 
 
@@ -25,6 +25,13 @@ def registration():
     return render_template('registration.html')
 
 
-@app.route('/doctors/1')
-def one_doctor():
-    return render_template('one_doctor.html')
+@app.route('/doctors/<int:doctor_id>')
+def one_doctor(doctor_id):
+    doctor = Doctor.query.get(doctor_id)
+    return render_template('one_doctor.html', doctor=doctor)
+
+
+@app.route('/service/')
+def service():
+    service = Service.query.all()
+    return render_template('analyzes.html', service=service)

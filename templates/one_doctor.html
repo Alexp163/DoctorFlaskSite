@@ -6,7 +6,14 @@
 
 {% block content %}
 {{ super() }}
-<p>Иванов Иван Иванович, 44 года</p>
+<p><p>Фамилия {{ doctor.second_name }}</p>
+<p>Имя {{ doctor.first_name }}</p> <p>Отчество {{ doctor.last_name }}</p>
+<p> Телефон {{ doctor.telephone  }}</p> <p>Емайл {{ doctor.email }} </p>
+<p>Специальность {{doctor.profile }}</p><p> Опыт {{ doctor.experience }}</p>
+
+
+</p>
 {% include "include/menu_doctor.html" %}
+
 
 {% endblock %}
