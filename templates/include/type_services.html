@@ -1,12 +1,6 @@
+{% for sg in service_groups %}
 <p>
-    <a href="#">Консультации врачей</a>
+    Тип сервиса: <a href="{{ url_for('service_group', service_group_id=sg.id)}}"> {{ sg.name }}</a>
 </p>
-<p>
-    <a href="#">Инструментальные методы исследования</a>
-</p>
-<p>
-    <a href="#">Анализы</a>
-</p>
-<p>
-    <a href="#">Стационарное лечение</a>
-</p>
+
+{% endfor %}
