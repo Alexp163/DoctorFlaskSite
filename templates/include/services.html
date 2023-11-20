@@ -1,9 +1,10 @@
 {% for s in service %}
 
 <p>
-    <a href="#"> Услуга  {{ s.name_service }} </a><div>
-    {{ s.description }} {{ s.executor }} {{ s.price }} {{ s.service_group.name}}
-</div>
+    <a href="#"> Услуга  {{ s.name_service }} </a>
+    <div>Описание: {{ s.description }}
+      Исполнитель: <a href="#">{{ s.executor }} </a>  цена  : {{ s.price }}
+    группа:  {{ s.service_group.name}} </div>
 </p>
 
 {% endfor %}

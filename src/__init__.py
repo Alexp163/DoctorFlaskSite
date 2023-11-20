@@ -1,2 +1,3 @@
-if __name__ == '__main__':
-    main()
+import  src.db, src.admin, src.app, src.models, src.forms, src.view
+
+

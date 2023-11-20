@@ -1,6 +1,6 @@
-from app import app
+from src.app import app
 from flask import render_template
-from models import Service, Doctor, ServiceGroup
+from src.models import Service, Doctor, ServiceGroup
 
 
 
