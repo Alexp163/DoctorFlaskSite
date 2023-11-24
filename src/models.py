@@ -1,4 +1,7 @@
-from src.db import db
+from db import db
+from sqlalchemy import Column, ForeignKey, Integer, String, Text, DateTime, Float
+from sqlalchemy.orm import Relationship
+from sqlalchemy.sql import func
 
 # id - (число)
 # first_name - имя (текст)
@@ -17,35 +20,43 @@ from src.db import db
 class Doctor(db.Model):
     __tablename__ = "doctor"
 
-    id = db.Column(db.Integer(), primary_key=True)
-    age = db.Column(db.Integer())
+    id = Column(Integer(), primary_key=True)
+    age = Column(Integer())
 
-    second_name = db.Column(db.String(50))  # фамилия
-    first_name = db.Column(db.String(50), nullable=False)  # имя
-    last_name = db.Column(db.String(50))  # отчество
+    second_name = Column(String(50))  # фамилия
+    first_name = Column(String(50), nullable=False)  # имя
+    last_name = Column(String(50))  # отчество
 
-    telephone = db.Column(db.String(20), nullable=False)  # телефон
-    email = db.Column(db.String(50), nullable=False, unique=True)  # мыло
+    telephone = Column(String(20), nullable=False)  # телефон
+    email = Column(String(50), nullable=False, unique=True)  # мыло
 
-    profile = db.Column(db.String(50), nullable=False)  # профиль
-    experience = db.Column(db.String(10))  # опыт работы
+    profile = Column(String(50), nullable=False)  # профиль
+    experience = Column(String(10))  # опыт работы
+
+    created_at = Column(DateTime, server_default=func.now())  # дата создания
+    updated_at = Column(DateTime, server_onupdate=func.now())  # дата обновления
 
     def __repr__(self):
         return (f"< Фамилия: {self.second_name}, Имя: {self.first_name}, Отчество: {self.last_name},"
                 f" телефон: {self.telephone}, профиль: {self.profile}, опыт работы: {self.experience}>")
 
 
+
+
 class Service(db.Model):
     __tablename__ = "service"
 
-    id = db.Column(db.Integer(), primary_key=True)
+    id = Column(Integer(), primary_key=True)
 
-    name_service = db.Column(db.String(100))  # наименование услуги
-    description = db.Column(db.Text())  # описание услуги
-    executor = db.Column(db.String(50))  # исполнитель
-    price = db.Column(db.Float())  # цена
-    service_group_id = db.Column(db.ForeignKey("service_group.id"))  # id группы, к которой относится эта услуга
-    service_group = db.Relationship("ServiceGroup")  # ссылка на группу(id которой указан в вышестоящей строчке)
+    name_service = Column(String(100))  # наименование услуги
+    description = Column(Text())  # описание услуги
+    executor = Column(String(50))  # исполнитель
+    price = Column(Float())  # цена
+    service_group_id = Column(ForeignKey("service_group.id"))  # id группы, к которой относится эта услуга
+    service_group = Relationship("ServiceGroup")  # ссылка на группу(id которой указан в вышестоящей строчке)
+
+    created_at = Column(DateTime, server_default=func.now())  # дата создания
+    updated_at = Column(DateTime, server_onupdate=func.now())  # дата обновления
     def __repr__(self):
         return (f"<Наименование услуги: {self.name_service} описание услуги: {self.description} "
                 f"ответственный: {self.executor} цена: {self.price}>")
@@ -54,10 +65,14 @@ class Service(db.Model):
 
 class ServiceGroup(db.Model):
     __tablename__ = "service_group"
-    id = db.Column(db.Integer(), primary_key=True)
+    id = Column(Integer(), primary_key=True)
 
-    name = db.Column(db.String(100))  # название группы
-    description = db.Column(db.Text())  # описание группы
+    name = Column(String(100))  # название группы
+    description = Column(Text())  # описание группы
+
+    created_at = Column(DateTime, server_default=func.now())  # дата создания
+    updated_at = Column(DateTime, server_onupdate=func.now())  # дата обновления
+
     # создать руководителя группы
     def __repr__(self):
         return f"<сервисная группа: {self.name}, описание группы: {self.description}>"
