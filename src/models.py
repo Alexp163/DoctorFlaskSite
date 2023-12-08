@@ -57,6 +57,10 @@ class Service(db.Model):
 
     created_at = Column(DateTime, server_default=func.now())  # дата создания
     updated_at = Column(DateTime, server_onupdate=func.now())  # дата обновления
+
+    doctor_id = Column(ForeignKey("doctor.id"))
+    doctor = Relationship("Doctor")
+
     def __repr__(self):
         return (f"<Наименование услуги: {self.name_service} описание услуги: {self.description} "
                 f"ответственный: {self.executor} цена: {self.price}>")
@@ -73,6 +77,24 @@ class ServiceGroup(db.Model):
     created_at = Column(DateTime, server_default=func.now())  # дата создания
     updated_at = Column(DateTime, server_onupdate=func.now())  # дата обновления
 
+    doctor_id = Column(ForeignKey("doctor.id"))
+    doctor = Relationship("Doctor")
+
     # создать руководителя группы
     def __repr__(self):
         return f"<сервисная группа: {self.name}, описание группы: {self.description}>"
+
+
+class User(db.Model):
+    __tablename__ = "user"
+    id = Column(Integer(), primary_key=True)
+
+    nick_name = Column(String(100), unique=True)
+    email = Column(String(100), unique=True)
+    password_hash = Column(String(256))
+
+    created_at = Column(DateTime, server_default=func.now())
+    updated_at = Column(DateTime, server_onupdate=func.now())
+
+    def __repr__(self):
+        return f"<Email: {self.email}, Никнэйм: {self.nick_name}>"

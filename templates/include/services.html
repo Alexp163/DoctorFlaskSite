@@ -3,7 +3,8 @@
 <p>
     <a href="#"> Услуга  {{ s.name_service }} </a>
     <div>Описание: {{ s.description }}
-      Исполнитель: <a href="#">{{ s.executor }} </a>  цена  : {{ s.price }}
+      Исполнитель: <a href="{{ url_for('one_doctor', doctor_id=s.doctor.id)}}">{{ s.doctor.second_name }} {{ s.doctor.first_name }}
+        {{ s.doctor.last_name }}</a>  цена  : {{ s.price }}
     группа:  {{ s.service_group.name}} </div>
 </p>
 

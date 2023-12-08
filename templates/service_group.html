@@ -6,7 +6,8 @@
 
 {% block content %}
 {{ super() }}
-
+<p>Ответственный за отдел: <a href="{{ url_for('one_doctor', doctor_id=service_group.doctor.id)}}">
+    {{ service_group.doctor.first_name }} {{ service_group.doctor.second_name }}</a></p>
 {% include "include/services.html" %}
 {% include "include/type_services.html" %}
 
