@@ -1,12 +1,15 @@
 {% extends "base.html" %}
 
-{% block page_title %} {{ super() }} - Регистрация {% endblock %}
+{% block page_title %} Регистрация {% endblock %}
 
-{% block h1_title %} {{ super() }} - Пройдите регистрацию {% endblock %}
+{% block h1_title %} Пройдите регистрацию {% endblock %}
 
 {% block content %}
-{{ super() }}
 
+{{ super() }}
 {% include "include/register_service.html" %}
+{% for message in get_flashed_messages() %}
+<p>{{ message }}</p>
+{% endfor %}
 
 {% endblock %}
