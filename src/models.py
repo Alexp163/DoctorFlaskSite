@@ -2,6 +2,7 @@ from db import db
 from sqlalchemy import Column, ForeignKey, Integer, String, Text, DateTime, Float
 from sqlalchemy.orm import Relationship
 from sqlalchemy.sql import func
+from flask_login import UserMixin
 
 # id - (число)
 # first_name - имя (текст)
@@ -85,7 +86,7 @@ class ServiceGroup(db.Model):
         return f"<сервисная группа: {self.name}, описание группы: {self.description}>"
 
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     __tablename__ = "user"
     id = Column(Integer(), primary_key=True)
 

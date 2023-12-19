@@ -8,6 +8,9 @@
 
 {{ super() }}
 {% include "include/type_services.html" %}
+{% if current_user.is_authenticated %}
+<p>Вы авторизованы. Ваша почта: {{ current_user.email }}</p>
+{% endif %}
 
 
 {% endblock %}
