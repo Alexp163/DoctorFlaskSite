@@ -104,3 +104,4 @@ def custom_404(error):
 @app.errorhandler(500)
 def custom_500(error):
     return render_template('error500.html')
+
