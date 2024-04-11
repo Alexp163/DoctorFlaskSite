@@ -14,6 +14,7 @@ class RegisterForm(FlaskForm):
     password_2 = PasswordField("Пароль", validators=[DataRequired(), Length(8, 32)])
 
 
+
     # def are_password_equal(self):
     #     pass
 

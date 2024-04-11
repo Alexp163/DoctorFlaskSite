@@ -7,6 +7,7 @@ from sqlalchemy.sql import func
 from db import db
 
 
+
 # id - (число)
 # first_name - имя (текст)
 # second_name - фамилия (текст)
